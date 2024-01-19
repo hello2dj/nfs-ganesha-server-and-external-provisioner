@@ -13,15 +13,18 @@
 # limitations under the License.
 
 # Update only after new version of deploy/base/Dockerfile change has built
-ARG GANESHA_VERSION=V3.5
+#ARG GANESHA_VERSION=V4.0.8
 
+#FROM harbor.newcapec.cn/cncamp/nfs-ganesha:V3.5
+#FROM harbor.newcapec.cn/cncamp/nfs-ganesha:V4.0.8
+FROM harbor.newcapec.cn/cncamp/nfs-ganesha:v3.5-n
 
-FROM ghcr.io/kubernetes-sigs/nfs-ganesha:${GANESHA_VERSION}
+ARG TARGETARCH
 
-ARG binary=nfs-provisioner
-COPY ${binary} /nfs-provisioner
+# ARG TARGETARCH
+COPY ./$TARGETARCH/nfs-provisioner /nfs-provisioner
 
-# expose mountd 20048/tcp and nfsd 2049/tcp and rpcbind 111/tcp 111/udp
+# expose mountd 2048/tcp and nfsd 2049/tcp and rpcbind 111/tcp 111/udp
 EXPOSE 2049/tcp 20048/tcp 111/tcp 111/udp
 
 ENTRYPOINT ["/nfs-provisioner"]

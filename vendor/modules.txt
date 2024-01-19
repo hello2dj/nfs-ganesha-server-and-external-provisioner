@@ -4,6 +4,8 @@ github.com/beorn7/perks/quantile
 github.com/davecgh/go-spew/spew
 # github.com/evanphx/json-patch v4.2.0+incompatible
 github.com/evanphx/json-patch
+# github.com/godbus/dbus v4.1.0+incompatible
+github.com/godbus/dbus
 # github.com/gogo/protobuf v1.2.2-0.20190723190241-65acae22fc9d
 github.com/gogo/protobuf/proto
 github.com/gogo/protobuf/sortkeys

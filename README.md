@@ -1,3 +1,8 @@
+# my company usage
+1. convert dbus to prometheus exporter only nfs v4.1
+2. install nano for editing ganesha file to enable logging
+3. only build arm64 and amd64
+
 # NFS Ganesha server and external provisioner
 
 `nfs-ganesha-server-and-external-provisioner` is an out-of-tree dynamic provisioner for Kubernetes 1.14+. You can use it to quickly & easily deploy shared storage that works almost anywhere. Or it can help you write your own out-of-tree dynamic provisioner by serving as an example implementation of the requirements detailed in [the proposal](https://github.com/kubernetes/kubernetes/pull/30285). 

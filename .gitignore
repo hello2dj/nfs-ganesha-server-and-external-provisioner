@@ -1,0 +1,3 @@
+/bin/
+/deploy/docker/amd64
+/deploy/docker/arm64

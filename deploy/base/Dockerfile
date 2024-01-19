@@ -18,11 +18,14 @@
 #       arm64 architectures.
 #
 # List of Fedora versions: https://en.wikipedia.org/wiki/Fedora_version_history#Version_history
-ARG FEDORA_VERSION=35
+ARG FEDORA_VERSION=34
 
 
 
-FROM registry.fedoraproject.org/fedora:${FEDORA_VERSION} AS build
+FROM --platform=$BUILDPLATFORM registry.fedoraproject.org/fedora:${FEDORA_VERSION} AS build
+
+ENV http_proxy=http://192.168.116.196:7890
+ENV https_proxy=http://192.168.116.196:7890
 
 # Build ganesha from source, install it to /usr/local and a use multi stage build to have a smaller image
 # Set NFS_V4_RECOV_ROOT to /export
@@ -83,6 +86,7 @@ RUN microdnf install -y \
 	rpcbind \
 	userspace-rcu \
 	xfsprogs \
+	nano     \
     && microdnf clean all
 
 RUN mkdir -p /var/run/dbus \
